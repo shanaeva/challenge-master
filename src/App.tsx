@@ -1,10 +1,10 @@
 import React from "react";
-import Stopwatch from "src/tasks/1/Stopwatch";
+import { StopwatchFunc } from "src/tasks/1/StopwatchFunc/StopwatchFunc";
 
 function App() {
     return (
         <div className="App">
-            <Stopwatch />
+            <StopwatchFunc />
         </div>
     );
 }
