@@ -1,5 +1,5 @@
 import "./styles.css";
-import imgSrc from "./../../../assets/like.svg";
+import imgSrc from "../../assets/like.svg";
 
 type Props = {
     text: string;
@@ -14,7 +14,7 @@ const styled = (deep: number) => ({
     marginLeft: `${1.5 * deep}vw`,
 });
 
-export const Comment = ({name, avatar, text, likes, date, deep}: Props) => (
+export const CommentCard = ({name, avatar, text, likes, date, deep}: Props) => (
     <div className="comment flex" style={styled(deep)}>
         <div className="comment__header flex">
             <div className="flex">

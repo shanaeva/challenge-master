@@ -1,12 +1,10 @@
 import React from "react";
-import { StopwatchFunc } from "src/tasks/1/StopwatchFunc/StopwatchFunc";
+import {CommentsList} from "./containers/CommentsList/CommentsList";
 
-function App() {
+export const App = () => {
     return (
         <div className="App">
-            <StopwatchFunc />
+            <CommentsList />
         </div>
     );
-}
-
-export default App;
+};

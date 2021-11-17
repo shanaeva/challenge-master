@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from "react";
-import getDataRequest from "../data/getDataRequest";
-
-import {DataType} from "../types";
-import {formatComments} from "../helpers";
-import {CommentContainer} from "../CommentContainer/CommentContainer";
+import {DataType} from "../../types";
+import {formatComments, getDataRequest} from "../../helpers";
+import {Comment} from "../Comment/Comment";
 
 export const CommentsList = () => {
     const [state, setState] = useState<DataType | null>(null);
@@ -27,5 +25,5 @@ export const CommentsList = () => {
 
     const {authors, comments} = state;
 
-    return <CommentContainer comments={comments} authors={authors} />;
+    return <Comment comments={comments} authors={authors} />;
 };

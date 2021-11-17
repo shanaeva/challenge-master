@@ -1,6 +1,21 @@
 import {CommentType, ChildrenType} from "./types";
+import comments from "./data/comments";
+import authors from "./data/authors";
 
 const MAX_LENGTH_DATE = 19;
+
+export const getDataRequest = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    if (Math.random() > 0.05) {
+        return {
+            comments,
+            authors,
+        };
+    }
+
+    throw new Error("Не удалось загрузить данные");
+};
 
 export const formatComments = (comments: Array<CommentType>) => {
     const children = {} as {[key: number]: {children: Array<ChildrenType>}};
@@ -33,3 +48,4 @@ export const formatComments = (comments: Array<CommentType>) => {
 
 export const formattedDate = (date: string) =>
     date.slice(0, MAX_LENGTH_DATE).replace("T", ", ");
+

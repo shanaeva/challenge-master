@@ -1,9 +1,9 @@
 import "./styles.css";
-import {AuthorType, ChildrenType} from "../types";
-import {Comment} from "../Comment/Comment";
+import {AuthorType, ChildrenType} from "../../types";
+import {CommentCard} from "../../components/CommentCard/CommentCard";
 import React, {useState} from "react";
-import {Button} from "../Button/Button";
-import {formattedDate} from "../helpers";
+import {Button} from "../../components/Button/Button";
+import {formattedDate} from "../../helpers";
 
 const MAX_COUNT_COMMENTS = 1;
 
@@ -13,7 +13,7 @@ type Props = {
     deep?: number;
 };
 
-export const CommentContainer = ({comments, authors, deep = 0}: Props) => {
+export const Comment = ({comments, authors, deep = 0}: Props) => {
     const [hiddenChildren, setHiddenChildren] = useState<Array<ChildrenType>>();
     const [maxCountComments, setMaxCountComments] =
         useState(MAX_COUNT_COMMENTS);
@@ -51,7 +51,7 @@ export const CommentContainer = ({comments, authors, deep = 0}: Props) => {
 
                 return (
                     <div className="comment-container" key={id}>
-                        <Comment
+                        <CommentCard
                             text={text}
                             name={name}
                             avatar={avatar}
@@ -60,7 +60,7 @@ export const CommentContainer = ({comments, authors, deep = 0}: Props) => {
                             deep={deep + 1}
                         />
                         {isCurrentChildren && isShowMore && (
-                            <CommentContainer
+                            <Comment
                                 comments={currentChildren}
                                 authors={authors}
                                 deep={deep + 1}
